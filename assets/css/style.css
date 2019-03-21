@@ -1,0 +1,29 @@
+.jumbotron{
+font-family: 'Creepster', cursive;
+opacity: .75;
+background: black;
+color: blanchedalmond;
+
+}
+body{
+background: url("../images/hell.jpg")no-repeat;
+background-position: center;
+background-size: cover;
+}
+.card{
+  background: black;
+  color: blanchedalmond;
+  opacity: .85;
+  font-family: 'Fruktur', cursive;
+}
+
+.card-header{
+font-size: 30px;
+}
+th{
+  color: blanchedalmond;
+}
+
+/* font-family: 'Creepster', cursive; */
+/* font-family: 'Gravitas One', cursive; */
+/* font-family: 'Fruktur', cursive; */
