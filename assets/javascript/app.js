@@ -41,7 +41,7 @@ $("document").ready(function () {
 
     clearInput();
 
-    alert("New Train Successfully added... to hell!")
+
 
   };
 
@@ -51,9 +51,15 @@ $("document").ready(function () {
     $("#circle-input").val("");
     $("#frequency-input").val("");
     $("#first-train-input").val("");
-  }
+  };
+
+  $("#add-train-btn").on("click", function (event) {
+    event.preventDefault();
+    retreiveInputs();
+    alert("New Train Successfully added... to hell!")
+  });
+
+
+
 
 });
-// $("document").ready(function () {
-
-// });
