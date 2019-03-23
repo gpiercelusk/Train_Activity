@@ -23,7 +23,13 @@ font-size: 30px;
 th{
   color: blanchedalmond;
 }
+#time-now{
+  text-align: center;
+}
 
+/* button{
+
+} */
 /* font-family: 'Creepster', cursive; */
 /* font-family: 'Gravitas One', cursive; */
 /* font-family: 'Fruktur', cursive; */
