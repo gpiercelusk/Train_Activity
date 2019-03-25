@@ -15,7 +15,7 @@ $("document").ready(function () {
 
 
 
-  var trainObj;
+  // var trainObj;
 
   retreiveInputs = function () {
     // Grabs user input
@@ -33,11 +33,6 @@ $("document").ready(function () {
     };
 
     database.ref().push(newTrain);
-
-    console.log(newTrain.name);
-    console.log(newTrain.circle);
-    console.log(newTrain.frequency);
-    console.log(newTrain.first);
 
     clearInput();
   };
@@ -57,10 +52,20 @@ $("document").ready(function () {
     alert("New Train Successfully added... You're on the highway to HELL!");
   });
 
-  $("table").on("click", function (event) {
+  $("table").on("click", "button", function () {
     $(this).closest("tr").remove();
     alert("Train moved to Purgatory...");
   });
+
+  currentTime = function () {
+    var current = moment().format("HH:mm:ss");
+    $("#time-now").html("Current time is: " + current);
+  };
+  currentTime();
+  setInterval(function () {
+    currentTime();
+  }, 1000);
+
 
   database.ref().on("child_added", function (snapshot) {
     var name = snapshot.val().name;
@@ -72,9 +77,6 @@ $("document").ready(function () {
 
     var convertTime = moment(first, "HH:mm").subtract(1, "years");
     console.log(convertTime);
-    var current = moment();
-
-    $("#time-now").html("Current time is: " + current.format("hh:mm a"));
 
     var timeDiff = moment().diff(moment(convertTime), "minutes");
     console.log(timeDiff);
@@ -85,11 +87,12 @@ $("document").ready(function () {
 
     var next = moment().add(minutesRemaining, "minutes");
 
-    var arrival = moment(next).format("hh:mm a");
+    var arrival = moment(next).format("HH:mm");
     console.log(arrival);
 
     var deleteTrain = "X";
 
-    $("tbody").append("<tr><td><button>" + deleteTrain + "</button></td><td>" + name + "</td><td>" + cir + "</td><td>" + freq + "</td><td>" + arrival + "</td><td>" + remaining + "</td></tr>");
+    $("tbody").append("<tr><td><button>" + deleteTrain + "</button></td><td>" + name + "</td><td>" + cir + "</td><td>" + "every " + freq + " mins" + "</td><td>" + arrival + "</td><td>" + remaining + "</td></tr>");
   });
+
 });
