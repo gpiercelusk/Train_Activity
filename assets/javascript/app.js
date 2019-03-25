@@ -15,7 +15,7 @@ $("document").ready(function () {
 
 
 
-  // var trainObj;
+
 
   retreiveInputs = function () {
     // Grabs user input
@@ -37,7 +37,7 @@ $("document").ready(function () {
     clearInput();
   };
 
-
+  //clears user input
   clearInput = function () {
     $("#train-name-input").val("");
     $("#circle-input").val("");
@@ -73,7 +73,7 @@ $("document").ready(function () {
     var freq = parseInt(snapshot.val().frequency);
     var first = snapshot.val().first;
     var howOften = freq;
-    var initialTrain = first;
+
 
     var convertTime = moment(first, "HH:mm").subtract(1, "years");
     console.log(convertTime);
@@ -87,12 +87,14 @@ $("document").ready(function () {
 
     var next = moment().add(minutesRemaining, "minutes");
 
-    var arrival = moment(next).format("HH:mm");
+    var arrival = moment(next).format("hh:mm a");
     console.log(arrival);
 
     var deleteTrain = "X";
 
-    $("tbody").append("<tr><td><button>" + deleteTrain + "</button></td><td>" + name + "</td><td>" + cir + "</td><td>" + "every " + freq + " mins" + "</td><td>" + arrival + "</td><td>" + remaining + "</td></tr>");
+
+
+    $("tbody").append("<tr><td><button>" + deleteTrain + "</button></td><td>" + name + "</td><td>" + cir + "</td><td>" + "every " + freq + " mins" + "</td><td>" + arrival + "</td><td>" + minutesRemaining + "</td></tr>");
   });
 
 });
